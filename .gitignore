@@ -1,0 +1,6 @@
+LICENCE
+README.txt
+setup.py
+dist
+src/quicksql.egg-info
+build
