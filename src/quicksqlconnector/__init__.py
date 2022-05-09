@@ -5,7 +5,7 @@ import mysql.connector as mysql
 def contains_word(search_string, target_word):
     return f'{target_word}' in f'{search_string}'
 
-class quicksql:
+class quicksqlconnector:
 
     def __init__(self, host:str, port:int, user:str, password:str, database:str):
 

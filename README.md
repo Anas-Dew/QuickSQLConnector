@@ -1,18 +1,18 @@
-## Introduction - QuickSQL
-#### QuickSQL directly establishes connection between python and mysqlserver. And gives you simple interface to execute mysql commands easily.
+## Introduction - QuickSQLConnector
+#### QuickSQLConnector directly establishes connection between python and mysqlserver. And gives you simple interface to execute mysql commands easily.
 ## How to use?
 
-### Use 'quicksql' keyword to import
+### Use 'quicksqlconnector' keyword to import
 
-```  from quicksql import quicksql```
+```  from quicksqlconnector import quicksqlconnector```
 
   
 ### Creating instance of module
-```DB = quicksql('host', port, 'username', 'password', 'database-name')```
+```DB = quicksqlconnector('host', port, 'username', 'password', 'database-name')```
 
   
 
-### quicksql only have one method which is 'query'
+### quicksqlconnector only have one method which is 'query'
 
 > pass your 'mysql commnad' as a string in query method to execute query.
 
