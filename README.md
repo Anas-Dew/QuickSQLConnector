@@ -1,9 +1,14 @@
 ## Introduction - QuickSQLConnector
-#### QuickSQLConnector directly establishes connection between python and mysqlserver. And gives you simple interface to execute mysql commands easily.
+* #### 🖇 Directly establishes connection between python and mysqlserver.
+* #### 😃 Gives you simple interface to execute mysql commands easily.
 ## Installation
 > USING PIP
 
 ``` pip install quicksqlconnector ```
+
+> FOR LINUX FRIENDS
+
+``` python3 pip install quicksqlconnector ```
 
 ## How to use?
 
