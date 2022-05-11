@@ -1,19 +1,19 @@
-## Introduction - QuickSQLConnector
+# 🤐 Introduction - QuickSQLConnector
 * #### 🖇 Directly establishes connection between python and mysqlserver.
 * #### 😃 Gives you simple interface to execute mysql commands easily.
-## Pre-requisites & Installation
+## 💽 Pre-requisites & Installation
 * #### MySQLServer and MySQL Command-Line Client should be installed on your machine.
 
 
-> USING PIP
+> 😋USING PIP
 
 * ``` pip install quicksqlconnector ```
 
-> FOR LINUX FRIENDS
+> 😈FOR LINUX FRIENDS
 
 * ``` python3 pip install quicksqlconnector ```
 
-## How to use?
+## 🙄How to use?
 
 ### Use 'quicksqlconnector' keyword to import
 
@@ -40,7 +40,7 @@
     DB.query('insert into people value(26,4,6)')
     DB.query('select * from people')
     
-## Useful Links
+## 🔗Useful Links
 
 #### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
 
