@@ -43,4 +43,3 @@
 ## 🔗Useful Links
 
 #### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
-jhkhhiohih
