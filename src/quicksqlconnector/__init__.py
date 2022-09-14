@@ -1,4 +1,4 @@
-__version__ = '1.1.1'
+__version__ = '1.2'
 from typing import Optional
 import mysql.connector as mysql
 from prettytable import PrettyTable
@@ -63,13 +63,13 @@ class quicksqlconnector:
                 return f'Query OK with command : {MyQuery}'
             
         except mysql.errors.ProgrammingError:
-            print('Something bad with command')
+            print('Command Error !')
         except mysql.errors.IntegrityError:
             print('Primary Key Duplicate Error')
         except mysql.errors.InternalError:
             print('Unread result found')
-        except :
-            print("SQL Command Error")
+        # except : // removed this to get more accurate, errors.
+        #     print("SQL Command Error")
 
 
 if __name__ == "__main__" :
