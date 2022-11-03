@@ -3,4 +3,6 @@ README.txt
 setup.py
 dist
 src/quicksqlconnector.egg-info
+src/quicksqlconnector/tempCodeRunnerFile.py
 build
+web
