@@ -1,3 +1,4 @@
+[![Downloads](https://pepy.tech/badge/quicksqlconnector/month)](https://pepy.tech/project/quicksqlconnector)
 # 🤐 Introduction - QuickSQLConnector
 * #### 🖇 Directly establishes connection between python and mysqlserver.
 * #### 😃 Gives you simple interface to execute mysql commands easily.
