@@ -1,5 +1,4 @@
-__version__ = '1.4'
-import csv
+__version__ = '1.4.1'
 from typing import Optional
 import mysql.connector as mysql
 from prettytable import PrettyTable
@@ -83,12 +82,4 @@ if __name__ == "__main__":
     # print(DB.query('show databases')[0][0])
     # print(DB.query('show tables'))
     # print(DB.query('show databases'))
-
-    # result = DB.query('select * from fb')
-    # c = csv.writer(open('dbdump01.csv', 'w'))
-    # for x in result:
-    #     c.writerow(x)
-
-    # print(DB.query('select * from fb where city like "%_i"'))
-    # print(DB.query('desc fb'))
     pass

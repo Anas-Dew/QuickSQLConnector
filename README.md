@@ -1,9 +1,11 @@
-# 🤐 Introduction - QuickSQLConnector
+[![Downloads/Month](https://pepy.tech/badge/quicksqlconnector/month)](https://pepy.tech/project/quicksqlconnector)
+
+# 🤐 What is Quick SQL Connector
 * #### 🖇 Directly establishes connection between python and mysqlserver.
-* #### 😃 Gives you simple interface to execute mysql commands easily.
+* #### 😃 Saves 80% of code as compared to other ORM libraries.
+
 ## 💽 Pre-requisites & Installation
 * #### MySQLServer and MySQL Command-Line Client should be installed on your machine.
-
 
 > 😋USING PIP
 
@@ -22,15 +24,12 @@
   
 ### Creating instance of module
 
-```DB = quicksqlconnector('host', port, 'username', 'password', 'database-name')```
-
+```DB = quicksqlconnector('host', port, 'username', 'password', 'database-name:optional'```
 
 ### quicksqlconnector only have one method which is 'query'
 
 
-
 > pass your 'mysql commnad' as a 'string' in 'query' method to execute query.
-
 
 
 
@@ -43,3 +42,4 @@
 ## 🔗Useful Links
 
 #### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
+#### Website - [Visit Here](https://quicksqlconnector.web.app/)
