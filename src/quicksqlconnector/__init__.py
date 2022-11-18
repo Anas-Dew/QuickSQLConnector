@@ -38,23 +38,27 @@ class quicksqlconnector:
             raise ValueError
 
     def query(self, my_query: str):
-        print(my_query)
         """
-        It takes a query as a string, and returns the result of the query
+        Takes a query and executes it if it's valid else it will throw error.
         
         :param my_query: str
         :type my_query: str
-        :return: The query is being returned.
+        :return: A list of tuples.
         """
+        # Lots of devs reported putting queries direct is insecure, yes it is true.
+        # but in this case before executing query are stored in a string.
+        # means it cannot be changed!. Unless your backend it compromised.
+        # OPEN AN ISSUE if something is wrong. It's an open source.
+        packed_query = my_query.lower()
 
         table = PrettyTable()
         try:
 
-            if 'select' or 'SELECT' in my_query:
-                all_info = []
+            if 'select' in packed_query:
 
+                all_info = []
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(my_query)
+                    cursor.execute(packed_query)
                     for bits_of_data in cursor:
                         all_info.append(bits_of_data)
                     cursor.close()
@@ -62,12 +66,11 @@ class quicksqlconnector:
 
                 return all_info
 
-            # elif contains_word(my_query, 'show') == True:
-            elif 'show' or 'SHOW' in my_query:
-
+            elif 'show' in packed_query:
+                
                 table.field_names = ['Result']
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(my_query)
+                    cursor.execute(packed_query)
 
                     for bits_of_data in cursor:
                         table.add_row([bits_of_data[0]])
@@ -77,15 +80,18 @@ class quicksqlconnector:
 
             else:
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(my_query)
+                    cursor.execute(packed_query)
                     cursor.close()
-                return f'Query OK with command : {my_query}'
+                return f'Query OK with command : {packed_query}'
 
         except Exception as e:
             print(e)
 
 
 if __name__ == "__main__":
+    # SOME TESTS WHICH I PERFORM WHILE CODING.
+    # USE YOUR OWN CREDS WHEN CONTRIBUTING
+
     DB = quicksqlconnector('localhost', 6606, 'root', 'anas9916', 'userbase')
     # print(DB.query('show databases'))
     # DB.query('use userbase')
@@ -93,8 +99,8 @@ if __name__ == "__main__":
     # print(DB.query('show tables'))
     # print(DB.query('SELECT * FROM new_fb'))
     # DB.query('CREATE TABLE test(name varchar(10), id int(10))')
-    print(DB.query("INSERT INTO test values('lex',1)"))
+    # print(DB.query("INSERT INTO test values('lex',1)"))
     # DB.query('DROP TABLE test')
     # print(DB.query('show tables'))
-    print(DB.query('SELECT * FROM test'))
+    # print(DB.query('SELECT * FROM test'))
     pass
