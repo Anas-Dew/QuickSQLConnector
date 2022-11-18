@@ -25,11 +25,12 @@ class quicksqlconnector:
 
             self.SQL = mysql.Connect(host=f'{host}', port=port,
                                      user=f'{user}', password=f'{password}', database=f'{database}')
-
+            self.SQL.autocommit = True
         except mysql.errors.ProgrammingError:  # IF DB NAME NOT FOUND CONNECT TO SERVER
 
             self.SQL = mysql.Connect(host=f'{host}', port=port,
                                      user=f'{user}', password=f'{password}')
+            self.SQL.autocommit = True
             print('No database exists with name : {}'.format(database))
             print('\nConnected to MySQL Server successfully.')
 
@@ -37,6 +38,7 @@ class quicksqlconnector:
             raise ValueError
 
     def query(self, my_query: str):
+        print(my_query)
         """
         It takes a query as a string, and returns the result of the query
         
@@ -48,33 +50,35 @@ class quicksqlconnector:
         table = PrettyTable()
         try:
 
-            if 'select' in my_query:
-
-                sql_cursor = self.SQL.cursor()
-                sql_cursor.execute(my_query)
-
+            if 'select' or 'SELECT' in my_query:
                 all_info = []
 
-                for bits_of_data in sql_cursor:
-                    all_info.append(bits_of_data)
+                with self.SQL.cursor() as cursor:
+                    cursor.execute(my_query)
+                    for bits_of_data in cursor:
+                        all_info.append(bits_of_data)
+                    cursor.close()
+
+
                 return all_info
 
             # elif contains_word(my_query, 'show') == True:
-            elif 'show' in my_query:
+            elif 'show' or 'SHOW' in my_query:
 
                 table.field_names = ['Result']
-                sql_cursor = self.SQL.cursor()
-                sql_cursor.execute(my_query)
+                with self.SQL.cursor() as cursor:
+                    cursor.execute(my_query)
 
-                for bits_of_data in sql_cursor:
-                    table.add_row([bits_of_data[0]])
+                    for bits_of_data in cursor:
+                        table.add_row([bits_of_data[0]])
+
+                    cursor.close()
                 return table
 
             else:
-
-                sql_cursor = self.SQL.cursor()
-                sql_cursor.execute(my_query)
-                self.SQL.commit()
+                with self.SQL.cursor() as cursor:
+                    cursor.execute(my_query)
+                    cursor.close()
                 return f'Query OK with command : {my_query}'
 
         except Exception as e:
@@ -84,8 +88,13 @@ class quicksqlconnector:
 if __name__ == "__main__":
     DB = quicksqlconnector('localhost', 6606, 'root', 'anas9916', 'userbase')
     # print(DB.query('show databases'))
-    # DB.query('use usrbase')
+    # DB.query('use userbase')
     # print(DB.query('show databases')[0][0])
-    print(DB.query('show databases'))
-    # DB.query('select * from ')
+    # print(DB.query('show tables'))
+    # print(DB.query('SELECT * FROM new_fb'))
+    # DB.query('CREATE TABLE test(name varchar(10), id int(10))')
+    print(DB.query("INSERT INTO test values('lex',1)"))
+    # DB.query('DROP TABLE test')
+    # print(DB.query('show tables'))
+    print(DB.query('SELECT * FROM test'))
     pass
