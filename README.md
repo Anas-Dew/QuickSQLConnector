@@ -36,12 +36,15 @@
 
 > pass your 'mysql commnad' as a 'string' in 'query' method to execute query.
 
-    ```DB.query("SELECT * FROM test where id= %s", (input_user,))```
-    ```DB.query("SELECT * FROM test")```
-    ```DB.query('CREATE TABLE test(name varchar(10), id int(10))')```
-    ```DB.query("INSERT INTO test values(%s, %s)", ('harry', 13))```
+    DB.query("SELECT * FROM test where id= %s", (input_user,))
+    DB.query("SELECT * FROM test")
+    DB.query('CREATE TABLE test(name varchar(10), id int(10))')
+    DB.query("INSERT INTO test values(%s, %s)", ('harry', 13))
 
-    
+
+## What's coming?
+* It will soon support other SQL databases including: Microsoft SQL server, SQL Lite, Postgres SQL etc.
+
 ## 🔗Useful Links
 #### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
 #### Website - [Visit Here](https://quicksqlconnector.web.app/)
