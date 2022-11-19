@@ -30,19 +30,17 @@
 
 
 ### quicksqlconnector only have one method which is 'query'
-
+#### It has two arguments, query and parameters.
 
 #### Some Examples
 
 > pass your 'mysql commnad' as a 'string' in 'query' method to execute query.
 
+    ```DB.query("SELECT * FROM test where id= %s", (input_user,))```
+    ```DB.query("SELECT * FROM test")```
+    ```DB.query('CREATE TABLE test(name varchar(10), id int(10))')```
+    ```DB.query("INSERT INTO test values(%s, %s)", ('harry', 13))```
 
-
-    DB.query('update people set id=90 where id=1')
-    DB.query('delete from people where id=1000')
-    DB.query('delete from people where id=1022')
-    DB.query('insert into people value(26,4,6)')
-    DB.query('select * from people')
     
 ## 🔗Useful Links
 #### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
