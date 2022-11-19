@@ -37,32 +37,25 @@ class quicksqlconnector:
         except:
             raise ValueError
 
-    def query(self, my_query: str):
-        """
-        Takes a query and executes it if it's valid else it will throw error.
-        
-        :param my_query: str
-        :type my_query: str
-        :return: A list of tuples.
-        """
-        # Lots of devs reported putting queries direct is insecure, yes it is true.
-        # but in this case before executing query are stored in a string.
-        # means it cannot be changed!. Unless your backend it compromised.
-        # OPEN AN ISSUE if something is wrong. It's an open source.
+    def query(self, my_query: str, parameters=None):
         packed_query = my_query.lower()
-
         table = PrettyTable()
+
         try:
 
             if 'select' in packed_query:
 
                 all_info = []
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(packed_query)
+                    # IF YOU'VE BETTER IDEA HOW TO DEAL THIS, Open an issue: https://github.com/Anas-Dew/QuickSQLConnector/issues
+                    if parameters:
+                        cursor.execute(packed_query, parameters)
+                    else:
+                        cursor.execute(packed_query)
+
                     for bits_of_data in cursor:
                         all_info.append(bits_of_data)
                     cursor.close()
-
 
                 return all_info
 
@@ -70,7 +63,11 @@ class quicksqlconnector:
                 
                 table.field_names = ['Result']
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(packed_query)
+                    # IF YOU'VE BETTER IDEA HOW TO DEAL THIS, Open an issue: https://github.com/Anas-Dew/QuickSQLConnector/issues
+                    if parameters:
+                        cursor.execute(packed_query, parameters)
+                    else:
+                        cursor.execute(packed_query)
 
                     for bits_of_data in cursor:
                         table.add_row([bits_of_data[0]])
@@ -80,7 +77,11 @@ class quicksqlconnector:
 
             else:
                 with self.SQL.cursor() as cursor:
-                    cursor.execute(packed_query)
+                    # IF YOU'VE BETTER IDEA HOW TO DEAL THIS, Open an issue: https://github.com/Anas-Dew/QuickSQLConnector/issues
+                    if parameters:
+                        cursor.execute(packed_query, parameters)
+                    else:
+                        cursor.execute(packed_query)
                     cursor.close()
                 return f'Query OK with command : {packed_query}'
 
@@ -97,10 +98,12 @@ if __name__ == "__main__":
     # DB.query('use userbase')
     # print(DB.query('show databases')[0][0])
     # print(DB.query('show tables'))
-    # print(DB.query('SELECT * FROM new_fb'))
+    # print(DB.query('SELECT * FROM new_fb '))
     # DB.query('CREATE TABLE test(name varchar(10), id int(10))')
-    # print(DB.query("INSERT INTO test values('lex',1)"))
+    # print(DB.query("INSERT INTO test values(%s, %s)", ('harry', 13)))
     # DB.query('DROP TABLE test')
     # print(DB.query('show tables'))
-    # print(DB.query('SELECT * FROM test'))
+    # input_user = '12 or 1=1' # SQL Injection Now Prevented
+    # print(DB.query("SELECT * FROM test where id= %s", (input_user,)))
+    # print(DB.query("SELECT * FROM test"))
     pass
