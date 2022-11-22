@@ -1,4 +1,4 @@
-__version__ = '1.4.42'
+__version__ = '1.5'
 import mysql.connector as mysql
 import sqlite3
 import psycopg2
