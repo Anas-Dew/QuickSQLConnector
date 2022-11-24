@@ -1,3 +1,5 @@
+![QuickSQLConnector](./src/meta%20banner.png)
+
 Developers are struggling to execute a query and what if you need to execute another query somewhere else? That's a lot of code to rewrite again. You don't have to do this because QuickSQLConnector got you coverd!. <a href="https://quicksqlconnector.web.app/">Quick SQL Connector</a> is a python library that lets you execute MySQL, PostgreSQL, and SQLite queries with just one line of code. 
 
 Saving 80% lines of code and get more done and it's all done in the same syntax with all SQL databases.
@@ -8,13 +10,13 @@ Saving 80% lines of code and get more done and it's all done in the same syntax 
 
 ## Installation 💿
 
-> 😋USING PIP
+> USING PIP
 
-* ``` pip install quicksqlconnector ```
+    pip install quicksqlconnector
 
-> 😈FOR LINUX FRIENDS
+> FOR LINUX FRIENDS
 
-* ``` python3 pip install quicksqlconnector ```
+    python3 pip install quicksqlconnector
 
 To update Quick SQL Connector to the latest version, add --upgrade flag to the above commands.
 
@@ -22,14 +24,22 @@ To update Quick SQL Connector to the latest version, add --upgrade flag to the a
 
 ### Use 'quicksqlconnector' keyword to import
 
-```from quicksqlconnector import quicksqlconnector```
+    from quicksqlconnector import quicksqlconnector
 
 ### Creating instance of module
 
-```DB = quicksqlconnector('host', port, 'username', 'password', 'database-name')```
+    DB = quicksqlconnector('database','host', port, 'username', 'password', 'database-name')
+
+For database, it has 3 options (case-sensitive).
+* ```mysql```
+* ```sqlite3```
+* ```postgres```
 
 > quicksqlconnector only have one method which is 'query'.
-> It has two arguments, query and parameters.
+
+    DB.query('query','parameters:optional')
+
+> It has two arguments, query and parameters, parameters are optional.
 
     DB.query("SELECT * FROM test where id= %s", (input_user,))
     DB.query("SELECT * FROM test")
@@ -37,9 +47,7 @@ To update Quick SQL Connector to the latest version, add --upgrade flag to the a
     DB.query("INSERT INTO test values(%s, %s)", ('harry', 13))
 
 
-## What's coming?
-* It will soon support other SQL databases including: Microsoft SQL server, SQL Lite, Postgres SQL etc.
-
 ## 🔗Useful Links
-#### PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
-#### Website - [Visit Here](https://quicksqlconnector.web.app/)
+* Email - [Click Here](mailto:anasraza1@yahoo.com)
+* PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
+* Website - [Visit Here](https://quicksqlconnector.web.app/)

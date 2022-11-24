@@ -36,8 +36,7 @@ class quicksqlconnector:
         self.database_name = database_name
 
         if self.database.lower() == 'mysql':
-            try:  # TRYING TO CONNECT TO DB IF DB NAME PROVIDED
-
+            try:
                 self.SQL = mysql.Connect(host=f'{host}', port=port,
                                          user=f'{user}', password=f'{password}', database=f'{database_name}')
                 self.SQL.autocommit = True
