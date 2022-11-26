@@ -48,6 +48,7 @@ For database, it has 3 options (case-sensitive).
 
 
 ## 🔗Useful Links
+* Buy Us a Coffee - [Just one cup!](https://www.buymeacoffee.com/anasraza)
 * Email - [Click Here](mailto:anasraza1@yahoo.com)
 * PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
 * Website - [Visit Here](https://quicksqlconnector.web.app/)
