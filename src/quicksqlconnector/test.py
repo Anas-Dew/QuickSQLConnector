@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # """))
 
     # POSTGRESQL EXAMPLES
-    DB = quicksqlconnector('postgres','localhost', 5432, 'postgres', 'anas9916')
+    # DB = quicksqlconnector('postgres','localhost', 5432, 'postgres', 'anas9916')
     # print(DB.query('SELECT datname FROM pg_database'))
 
     pass

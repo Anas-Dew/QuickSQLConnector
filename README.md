@@ -28,7 +28,11 @@ To update Quick SQL Connector to the latest version, add --upgrade flag to the a
 
 ### Creating instance of module
 
-    DB = quicksqlconnector('database','host', port, 'username', 'password', 'database-name')
+    DB = quicksqlconnector('database','host', port, 'username', 'password')
+
+    NOTE : If you're using SQLite, you must provide database file name as follows.
+
+    DB = quicksqlconnector('sqlite3', database_name='my_example_database')
 
 For database, it has 3 options (case-sensitive).
 * ```mysql```
@@ -39,16 +43,33 @@ For database, it has 3 options (case-sensitive).
 
     DB.query('query','parameters:optional')
 
+    FOR SQLite, you don't need to use parameterized quieries as it is not supported in SQLite.
+
 > It has two arguments, query and parameters, parameters are optional.
+    
+    # EXAMPLES FOR 'MYSQL'
 
     DB.query("SELECT * FROM test where id= %s", (input_user,))
     DB.query("SELECT * FROM test")
     DB.query('CREATE TABLE test(name varchar(10), id int(10))')
     DB.query("INSERT INTO test values(%s, %s)", ('harry', 13))
 
+    # EXAMPLES FOR 'SQLITE'
+
+    DB.query('DROP TABLE movie')
+    DB.query("CREATE TABLE movie(title varchar(1), year int(1), score int(1))")
+
+    # EXAMPLE FOR 'POSTGRESQL'
+
+    DB.query('SELECT datname FROM pg_database')
+
+See `test.py` for [more examples](https://github.com/Anas-Dew/QuickSQLConnector/blob/main/src/quicksqlconnector/test.py).
 
 ## 🔗Useful Links
-* Buy Us a Coffee - [Just one cup!](https://www.buymeacoffee.com/anasraza)
-* Email - [Click Here](mailto:anasraza1@yahoo.com)
-* PyPi - [Visit Here](https://pypi.org/project/quicksqlconnector/)
-* Website - [Visit Here](https://quicksqlconnector.web.app/)
+
+|    Route   | Link |
+| ----------- | ----------- |
+| Buy me a Coffee | [Visit](https://www.buymeacoffee.com/anasraza) |
+| Email   | [Visit](mailto:anasraza1@yahoo.com)|
+| PyPi |  [Visit](https://pypi.org/project/quicksqlconnector/) |
+| Website | [Visit](https://quicksqlconnector.web.app/)|
