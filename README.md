@@ -1,8 +1,8 @@
 ![QuickSQLConnector](./src/meta%20banner.png)
 
-Developers are struggling to execute a query and what if you need to execute another query somewhere else? That's a lot of code to rewrite again. You don't have to do this because QuickSQLConnector got you coverd!. <a href="https://quicksqlconnector.web.app/">Quick SQL Connector</a> is a python library that lets you execute MySQL, PostgreSQL, and SQLite queries with just one line of code. 
+Developers are struggling to execute a query and what if you need to execute another query somewhere else? That's a lot of code to rewrite again. You don't have to do this because QuickSQLConnector got you covered!. <a href="https://quicksqlconnector.web.app/">Quick SQL Connector</a> is a python library that lets you execute MySQL, PostgreSQL, and SQLite queries with just one line of code. 
 
-Saving 80% lines of code and get more done and it's all done in the same syntax with all SQL databases.
+Reducing 80% lines of code and get more done and it's all done in the same syntax with all SQL databases mentioned.
 
 [![Downloads](https://static.pepy.tech/personalized-badge/quicksqlconnector?period=month&units=international_system&left_color=black&right_color=orange&left_text=Downloads%20per%20Month)](https://pepy.tech/project/quicksqlconnector)  [![PyPI version](https://badge.fury.io/py/quicksqlconnector.svg)](https://badge.fury.io/py/quicksqlconnector)  [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)  [![Generic badge](https://img.shields.io/badge/Developers-Happy-<COLOR>.svg)](https://shields.io/)
 
