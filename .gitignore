@@ -7,3 +7,4 @@ src/quicksqlconnector/tempCodeRunnerFile.py
 build
 web
 commands.txt
+src/quicksqlconnector/__pycache__
